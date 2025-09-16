@@ -12,7 +12,6 @@ class Query(BaseModel):
     chat_id: str
     messages: List[Message]
 
-# Root POST endpoint for online judge
 @app.post("/")
 async def assistant(query: Query):
     last_message = query.messages[-1].content.strip()
