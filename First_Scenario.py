@@ -12,7 +12,7 @@ class Query(BaseModel):
     chat_id: str
     messages: List[Message]
 
-@app.post("/")
+@app.post("/chat")
 async def assistant(query: Query):
     last_message = query.messages[-1].content.strip()
 
