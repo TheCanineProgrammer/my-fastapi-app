@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
-from typing import List, Optional
+from typing import List
 
 app = FastAPI(docs_url=None, redoc_url=None, openapi_url=None)  # disable Swagger & OpenAPI
 
@@ -12,7 +12,8 @@ class Query(BaseModel):
     chat_id: str
     messages: List[Message]
 
-@app.post("/assistant")
+# Root POST endpoint for online judge
+@app.post("/")
 async def assistant(query: Query):
     last_message = query.messages[-1].content.strip()
 
