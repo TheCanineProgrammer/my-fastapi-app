@@ -8,4 +8,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # Railway sets $PORT; do not hardcode 8080
-CMD ["uvicorn", "First_Scenario:app", "--host", "0.0.0.0", "--port", "$PORT"]
+CMD uvicorn First_Scenario:app --host 0.0.0.0 --port $PORT
